@@ -1,0 +1,4 @@
+recursive-include postsapi/public *
+include postsapi/public/favicon.ico
+recursive-include postsapi/i18n *
+recursive-include postsapi/templates *

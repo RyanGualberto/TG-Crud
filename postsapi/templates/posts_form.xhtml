@@ -1,0 +1,39 @@
+<html py:extends="master.xhtml" py:strip="True">
+
+<head py:block="head" py:strip="True">
+    <title py:block="master_title">Post</title>
+</head>
+
+<body py:block="body" py:strip="True">
+    <section class="flex justify-self-center items-center justify-center min-h-screen">
+        <form action="/post/save" method="post"
+            class="rounded-lg bg-[#f1f1f1] p-4 text-[#333333] flex flex-col justify-between gap-6">
+            <h2 class="text-2xl font-semibold" py:if="post">Editar Post</h2>
+            <h2 class="text-2xl font-semibold" py:if="post==None">Novo Post</h2>
+            <div py:if="post">
+                <input type="hidden" name="id" value="${post.id}" />
+            </div>
+            <label class="flex flex-col font-semibold">
+                Title: <input name="title" py:if="post" value="${post.title}"
+                    class="rounded-lg bg-[#ffffff] p-4 py-2 text-[#333333] gap-2 flex flex-col justify-between" />
+                <input name="title" py:if="post==None"
+                    class="rounded-lg bg-[#ffffff] p-4 py-2 text-[#333333] gap-2 flex flex-col justify-between" />
+            </label>
+            <label class="flex flex-col font-semibold"> body <input name="body" py:if="post" value="${post.body}"
+                    class="rounded-lg bg-[#ffffff] p-4 py-2 text-[#333333] gap-2 flex flex-col justify-between" />
+                <input name="body" py:if="post==None"
+                    class="rounded-lg bg-[#ffffff] p-4 py-2 text-[#333333] gap-2 flex flex-col justify-between" />
+            </label>
+            <label class="flex flex-col font-semibold"> author <input name="author" py:if="post" value="${post.author}"
+                    class="rounded-lg bg-[#ffffff] p-4 py-2 text-[#333333] gap-2 flex flex-col justify-between" />
+                <input name="author" py:if="post==None"
+                    class="rounded-lg bg-[#ffffff] p-4 py-2 text-[#333333] gap-2 flex flex-col justify-between" />
+            </label>
+            <button type="submit" class="px-4 py-2 bg-green-500 rounded-lg text-white">
+                <div py:content="button_label">create</div>
+            </button>
+        </form>
+    </section>
+</body>
+
+</html>
